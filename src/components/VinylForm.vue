@@ -6,7 +6,6 @@ import { v4 as uuid } from 'uuid'
 const props = defineProps<{ vinyl: Vinyl | null }>()
 const emit = defineEmits(['add-vinyl', 'update-vinyl', 'cancel-edit'])
 
-// Form fields
 const artist = ref('')
 const album = ref('')
 const releaseYear = ref('')
@@ -15,7 +14,6 @@ const price = ref('')
 const stock = ref('')
 const description = ref('')
 
-// Watch for selected vinyl (edit mode)
 watch(() => props.vinyl, (newVinyl) => {
     if (newVinyl) {
         artist.value = newVinyl.artist
@@ -30,7 +28,6 @@ watch(() => props.vinyl, (newVinyl) => {
     }
 })
 
-// Reset form for new vinyls
 const resetForm = () => {
     artist.value = ''
     album.value = ''
@@ -40,7 +37,6 @@ const resetForm = () => {
     stock.value = ''
     description.value = ''
 
-    // Remove Bootstrap validation class
     const form = document.querySelector("form");
     if (form) {
         form.classList.remove("was-validated");
@@ -67,7 +63,7 @@ const submitForm = (event: Event): void => {
     }
 
     if (props.vinyl) {
-        emit('update-vinyl', { ...props.vinyl, ...vinylData }) // <-- Conserve l'ID de l'objet original
+        emit('update-vinyl', { ...props.vinyl, ...vinylData })
         console.log('update-vinyl', { ...props.vinyl, ...vinylData })
     } else {
         emit('add-vinyl', vinylData)

@@ -18,7 +18,7 @@ const exportCSV = () => {
         vinyl.album,
         vinyl.price,
         vinyl.stock
-    ].map(value => `"${String(value).replace(/"/g, '""')}"`).join(separator)) // Ensure proper escaping
+    ].map(value => `"${String(value).replace(/"/g, '""')}"`).join(separator))
 
     // Merge headers and rows
     const csvContent = [headers.join(separator), ...csvRows].join("\r\n")

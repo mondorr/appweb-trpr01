@@ -7,10 +7,8 @@ import StockBadge from './StockBadge.vue'
 defineProps<{ vinyl: Vinyl }>()
 const emit = defineEmits(['edit', 'delete', 'duplicate'])
 
-// Track expanded state
 const isExpanded = ref(false)
 
-// Toggle row expansion (ignores dropdown clicks)
 const toggleExpand = (event: Event) => {
   const target = event.target as HTMLElement
   if (target.closest('.dropdown, button')) return

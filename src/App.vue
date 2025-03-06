@@ -27,7 +27,6 @@ const deleteModalMessage = computed(()=> {
   return `Êtes-vous sûr de vouloir supprimer ${vinylToDelete?.value?.album} de ${vinylToDelete?.value?.artist}?`
 })
 
-
 // Add new vinyl
 const addVinyl = (vinyl: Vinyl) => {
   listOfVinyls.value.push({ ...vinyl, id: Date.now().toString() }) // Ensure unique ID
@@ -138,7 +137,7 @@ const outOfStockVinyls = computed(() => {
   </div>
 </template>
 
-<style>
+<style scoped>
 .warning-icon {
   font-size: 2rem;
 }

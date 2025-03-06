@@ -1,0 +1,7 @@
+#app {
+    background-color: #1c1e1f;
+}
+
+[class^="col-"] {
+   padding: 0  !important
+}
